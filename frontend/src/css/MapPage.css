@@ -1,0 +1,112 @@
+/* =========================================
+   หน้าค้นหาแผนที่ (Map Page Layout)
+   ========================================= */
+.map-page-layout {
+  display: flex;
+  height: calc(100vh - 80px); /* ความสูงเต็มจอ ลบความสูง Navbar */
+  margin-top: 0; /* ถ้ามี margin-top จาก navbar ให้เอาออก หรือปรับตามเหมาะสม */
+}
+
+/* --- ส่วน Sidebar ด้านซ้าย --- */
+.sidebar-list {
+  width: 400px;
+  background: white;
+  overflow-y: auto; /* ให้เลื่อนลงได้ถ้าข้อมูลเยอะ */
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 25px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+.sitter-cards {
+  padding: 20px;
+}
+
+/* การ์ดพี่เลี้ยงในรายการ */
+.sitter-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sitter-item:hover, .sitter-item.active {
+  border-color: #2E7D32;
+  background-color: #F1F8E9;
+  transform: scale(1.02);
+}
+
+.sitter-emoji {
+  font-size: 40px;
+  background: #eee;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.sitter-info h3 {
+  font-size: 18px;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.price {
+  color: #2E7D32;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.btn-view {
+  font-size: 12px;
+  padding: 6px 12px;
+  background: #333;
+  color: white;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- ส่วนแผนที่ ด้านขวา --- */
+.map-container-wrapper {
+  flex: 1; /* ขยายให้เต็มพื้นที่ที่เหลือ */
+  position: relative;
+}
+
+/* ปรับ Responsive สำหรับมือถือ */
+@media (max-width: 768px) {
+  .map-page-layout {
+    flex-direction: column-reverse; /* เอารายชื่อไว้ล่าง แผนที่ไว้บน */
+    height: auto;
+  }
+  .sidebar-list {
+    width: 100%;
+    height: 50vh;
+  }
+  .map-container-wrapper {
+    height: 50vh;
+  }
+}

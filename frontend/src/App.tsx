@@ -1,0 +1,197 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // 1. นำเข้า Router
+import './css/App.css';
+import catImage from './assets/cat.jpg';
+import Services from './Services'; // นำเข้าไฟล์ Services
+import MapPage from './MapPage';
+import SitterDetails from './SitterDetails';
+import Articles from './Articles';
+import Reviews from './Reviews';
+import ServiceList from './ServiceList';
+import Register from './Register';
+import Login from './Login';
+import PartnerDashboard from './Partner/PartnerDashboard';
+import PartnerServices from './Partner/PartnerServices';
+import PartnerSidebar from './component/PartnerSidebar';
+import PartnerReports from './Partner/PartnerReports';
+import PartnerWallet from './Partner/PartnerWallet';
+import MyPets from './User/MyPets';
+import MyBookings from './User/MyBookings';
+import Tracking from './User/Tracking';
+import PetDetails from './User/PetDetails';
+import AddPet from './User/AddPet';
+
+import HealthRecord from './User/HealthRecord';
+
+// 2. สร้าง Component หน้าแรก (Home) 
+// (เอา Hero Section และ Features มาใส่ไว้ในนี้ เพื่อให้เป็นระเบียบ)
+const Home: React.FC = () => {
+  return (
+    <>
+      {/* Hero Section */}
+      <header className="hero-section">
+        <div className="hero-content hero-animate">
+          <div className="badge">✨ ดูแลสัตว์เลี้ยงครบวงจร อันดับ 1 ในจันทบุรี</div>
+          <h1 className="hero-title">
+            ฝาก "ลูกรัก" ไว้กับ<br />
+            <span className="highlight-text">พาร์ทเนอร์ที่รู้ใจ</span>
+          </h1>
+          <p className="hero-subtitle">
+            อุ่นใจทุกครั้งที่ต้องห่างบ้าน ด้วยระบบจับคู่พี่เลี้ยงที่ผ่านการคัดกรอง 
+            พร้อม Live Cam ดูน้องๆ ได้ตลอด 24 ชม. เหมือนอยู่ด้วยกันตลอดเวลา
+          </p>
+          <div className="cta-group">
+            {/* ปุ่มค้นหาที่พัก ก็ลิงก์ไปหน้าบริการได้เหมือนกัน */}
+            <Link to="/services">
+                <button className="btn-main">🔍 ค้นหาที่พักใกล้คุณ</button>
+            </Link>
+            <button className="btn-secondary">▶ ดูวิดีโอแนะนำ</button>
+          </div>
+          <div className="stats-row">
+            <div className="stat-item"><strong>500+</strong> พี่เลี้ยง</div>
+            <div className="stat-divider"></div>
+            <div className="stat-item"><strong>24/7</strong> Support</div>
+            <div className="stat-divider"></div>
+            <div className="stat-item"><strong>4.9/5</strong> รีวิว</div>
+          </div>
+        </div>
+        
+        <div className="hero-image-container float-img">
+           <img 
+            src={catImage}
+            alt="Happy Dog" 
+            className="hero-img" 
+           />
+           <div className="floating-card">
+             <span style={{fontSize: '20px'}}>📷</span> Live Status: <strong style={{color: '#4CAF50'}}>Online</strong>
+           </div>
+        </div>
+      </header>
+
+      {/* Features Summary Section */}
+      <section className="features-section">
+        <div className="section-header">
+          <h2 className="section-title">ทำไมต้องเลือก PetPal?</h2>
+          <p className="section-subtitle">เราใส่ใจในทุกรายละเอียดเพื่อความสุขของน้องๆ</p>
+        </div>
+        
+        <div className="feature-grid">
+          <FeatureCard 
+            icon="🛡️" title="Verified Partners" desc="พาร์ทเนอร์ทุกคนผ่านการยืนยันตัวตนและตรวจสอบประวัติอาชญากรรม 100%" color="#E3F2FD"
+          />
+          <FeatureCard 
+            icon="🎥" title="Real-time Live Cam" desc="ดูความเคลื่อนไหวผ่านกล้องวงจรปิดได้ตลอดเวลาผ่านแอปพลิเคชัน" color="#E8F5E9"
+          />
+          <FeatureCard 
+            icon="🏥" title="Vet Support" desc="มีเครือข่ายโรงพยาบาลสัตว์และบริการรถรับ-ส่งฉุกเฉิน 24 ชั่วโมง" color="#FFF3E0"
+          />
+           <FeatureCard 
+            icon="❤️" title="Pet Insurance" desc="คุ้มครองประกันอุบัติเหตุระหว่างการฝากเลี้ยง วงเงินสูงสุด 50,000 บาท" color="#FCE4EC"
+          />
+        </div>
+      </section>
+    </>
+  );
+};
+
+// 3. Component หลัก (App)
+const App: React.FC = () => {
+  return (
+    <Router>
+      <div className="app-container">
+        {/* Navigation Bar (แสดงทุกหน้า) */}
+        <nav className="navbar">
+          <div className="logo-container">
+            <span style={{ fontSize: '32px' }}>🐾</span> 
+            {/* กดโลโก้แล้วกลับหน้าแรก */}
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <span className="logo-text">PetPal</span>
+            </Link>
+          </div>
+
+          <div className="nav-links">
+            {/* ใช้ Link แทน <a> เพื่อเปลี่ยนหน้าโดยไม่โหลดใหม่ */}
+            <Link to="/" className="nav-link">หน้าหลัก</Link>
+            
+            {/* 🔴 จุดสำคัญ: ปุ่มนี้จะลิงก์ไปหน้า Services */}
+            <Link to="/services" className="nav-link">บริการ</Link> 
+            {/* 🔴 จุดสำคัญ: ปุ่มนี้จะลิงก์ไปหน้า Services */}
+            <Link to="/MapPage" className="nav-link">แผนที่</Link> 
+            <a href="/Reviews" className="nav-link">รีวิว</a>
+            <a href="/Articles" className="nav-link">บทความ</a>
+            <a href="/AddPet" className="nav-link">เพิ่มสัตว์</a>
+            <a href="/MyPets" className="nav-link">สัตว์ของฉัน</a>
+
+            <a href="/Tracking" className="nav-link">รายงานที่ทำ</a>
+            <a href="/MyBookings" className="nav-link">การจอง</a>
+            <a href="/PartnerReports" className="nav-link">report</a>
+            <a href="/PartnerServices" className="nav-link">ร้านบริการ</a>
+            <a href="/PartnerWallet" className="nav-link">กระเป๋าร้าน</a>
+          </div>
+
+          <div className="auth-buttons">
+            <Link to="/Login">
+            <button className="btn-register">เข้าสู่ระบบ</button>
+            </Link>
+            <Link to="/Register">
+            <button className="btn-register">สมัครสมาชิก</button>
+            </Link>
+          </div>
+        </nav>
+
+        {/* ส่วนกำหนดเส้นทาง (Routes) */}
+        <Routes>
+          {/* ถ้า path เป็น / ให้แสดง Home */}
+          <Route path="/" element={<Home />} />
+          
+          {/* ถ้า path เป็น /services ให้แสดง Services (จากไฟล์ Services.tsx) */}
+          <Route path="/services" element={<Services />} />
+          {/* ถ้า path เป็น /services ให้แสดง Services (จากไฟล์ Services.tsx) */}
+          <Route path="/MapPage"  element={<MapPage />} />
+          <Route path="/sitter/:id" element={<SitterDetails />} />
+          <Route path="/Articles" element={<Articles />} />
+          <Route path="/Reviews" element={<Reviews />} />
+          <Route path="/list/:type" element={<ServiceList />} />
+          <Route path="/Register" element={<Register />}/>
+          <Route path="/Login" element={<Login />}/>
+          <Route path="/PartnerDashboard" element={<PartnerDashboard />}/>
+          <Route path="/PartnerServices" element={<PartnerServices />}/>
+          <Route path="/PartnerSidebar" element={<PartnerSidebar />}/>
+          <Route path="/PartnerReports" element={<PartnerReports />}/>
+          <Route path="/PartnerWallet" element={<PartnerWallet />}/>
+          <Route path="/MyBookings" element={<MyBookings />}/>
+          <Route path="/MyPets" element={<MyPets />}/>
+          <Route path="/Tracking" element={<Tracking />}/>
+          <Route path="/pet/:id" element={<PetDetails />} />
+          <Route path="/AddPet" element={<AddPet />} />
+          <Route path="/pet/:id/health" element={<HealthRecord />} />
+        </Routes>
+          
+        {/* Footer (แสดงทุกหน้า) */}
+        <footer className="footer">
+          <div className="footer-content">
+            <div className="footer-logo">🐾 PetPal</div>
+            <p>© 2026 PetPal Project - Burapha University Chanthaburi Campus</p>
+            <div className="footer-links">
+               <span className="footer-link">Privacy Policy</span>
+               <span className="footer-link">Terms of Service</span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </Router>
+  );
+};
+
+// Component ย่อย: Feature Card
+const FeatureCard = ({ icon, title, desc, color }: { icon: string, title: string, desc: string, color: string }) => {
+  return (
+    <div className="feature-card">
+      <div className="feature-icon-box" style={{ backgroundColor: color }}>{icon}</div>
+      <h3 className="feature-title">{title}</h3>
+      <p className="feature-desc">{desc}</p>
+    </div>
+  );
+};
+
+export default App;

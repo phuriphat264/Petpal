@@ -1,0 +1,185 @@
+/* =========================================
+   หน้าบทความ (Articles Page)
+   ========================================= */
+.articles-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Sarabun', sans-serif; /* แนะนำให้ใช้ฟอนต์ไทยสวยๆ */
+}
+
+/* Header */
+.articles-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.articles-header h1 {
+  font-size: 36px;
+  color: #2E7D32;
+  margin-bottom: 10px;
+}
+
+.articles-header p {
+  color: #666;
+  font-size: 18px;
+}
+
+/* Category Tabs */
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background: white;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab-btn:hover, .tab-btn.active {
+  background: #2E7D32;
+  color: white;
+  border-color: #2E7D32;
+}
+
+/* Grid Layout */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Card Styles */
+.article-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-image-wrapper {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.article-card:hover .card-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.category-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255,255,255,0.9);
+  color: #2E7D32;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-meta {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.article-title {
+  font-size: 18px;
+  margin: 0 0 10px 0;
+  color: #333;
+  line-height: 1.4;
+  height: 50px; /* จำกัดความสูงหัวข้อ */
+  overflow: hidden;
+}
+
+.article-excerpt {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  height: 66px; /* จำกัดความสูงเนื้อหา */
+  overflow: hidden;
+}
+
+.read-more-link {
+  text-decoration: none;
+  color: #2E7D32;
+  font-weight: bold;
+  font-size: 14px;
+  transition: padding 0.3s;
+}
+
+.read-more-link:hover {
+  padding-left: 5px; /* Effect ขยับเมื่อเอาเมาส์ชี้ */
+}
+
+/* Footer CTA */
+.articles-footer-cta {
+  background: #E8F5E9;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.subscribe-box {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subscribe-box input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+
+.subscribe-box button {
+  padding: 10px 20px;
+  background: #2E7D32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .subscribe-box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .subscribe-box input {
+    width: 100%;
+  }
+}

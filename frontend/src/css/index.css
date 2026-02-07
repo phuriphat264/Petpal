@@ -1,0 +1,29 @@
+/* ไฟล์ src/index.css */
+:root {
+  font-family: 'Kanit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  /* ล้างค่าเริ่มต้นของ browser */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100vw; /* บังคับให้เต็มจอแนวนอน */
+  overflow-x: hidden; /* ซ่อน scrollbar แนวนอนส่วนเกิน */
+}
+
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%; /* สำคัญมาก! ต้องแก้จาก 1280px เป็น 100% */
+  text-align: left; /* แก้จาก center เป็น left */
+}

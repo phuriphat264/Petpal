@@ -1,0 +1,146 @@
+/* Container พื้นหลัง */
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); /* พื้นหลังเขียวอ่อน */
+  padding: 40px 20px;
+}
+
+/* การ์ดตรงกลาง */
+.register-card {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.register-header h2 {
+  color: #2E7D32;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.register-header p {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ปุ่มสลับบทบาท (Switcher) */
+.role-switcher {
+  display: flex;
+  background: #f1f1f1;
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.role-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.role-btn.active {
+  background: white;
+  color: #2E7D32;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ฟอร์ม */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box; /* สำคัญมาก กัน input ล้น */
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2E7D32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+/* แถวแนวนอน (รหัสผ่าน) */
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+.form-row .form-group {
+  flex: 1;
+}
+
+/* หมายเหตุพี่เลี้ยง */
+.sitter-note {
+  background: #fff3e0;
+  color: #e65100;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  border-left: 4px solid #ff9800;
+}
+
+/* ปุ่ม Submit */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: #2E7D32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #1B5E20;
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.link-login {
+  color: #2E7D32;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .register-card { padding: 25px; }
+  .form-row { flex-direction: column; gap: 0; }
+}

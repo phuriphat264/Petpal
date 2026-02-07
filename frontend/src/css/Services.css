@@ -1,0 +1,138 @@
+/* =========================================
+   หน้าบริการ (Services Page Styling)
+   ========================================= */
+
+/* พื้นหลังของหน้าบริการ */
+.services-page {
+  background-color: #f8fafc; /* สีเทาฟ้าอ่อนๆ ให้ดูสบายตา */
+  min-height: 100vh;
+  padding-bottom: 80px;
+  animation: fadeIn 0.8s ease-out; /* เพิ่ม Effect ค่อยๆ ปรากฏ */
+}
+
+/* Grid สำหรับวางการ์ด (รองรับมือถือและจอคอม) */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- การ์ดบริการ (Card Design) --- */
+.service-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Effect เมื่อเอาเมาส์ชี้การ์ด */
+.service-card:hover {
+  transform: translateY(-12px); /* ลอยขึ้น */
+  box-shadow: 0 20px 25px -5px rgba(46, 125, 50, 0.15), 0 10px 10px -5px rgba(46, 125, 50, 0.04);
+  border-color: rgba(46, 125, 50, 0.2);
+}
+
+/* ส่วนหัวของการ์ด (ที่วางไอคอน) */
+.service-icon-wrapper {
+  height: 160px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  position: relative;
+  /* ลูกเล่นส่วนโค้งด้านล่างของสีพื้นหลัง */
+  clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+/* เนื้อหาภายในการ์ด */
+.service-content {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* ชื่อบริการ */
+.service-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+/* รายละเอียด */
+.service-detail {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1; /* ดันปุ่มและราคาลงไปด้านล่างเสมอ */
+}
+
+/* ราคา */
+.service-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2e7d32;
+  background-color: #f1f8e9;
+  padding: 8px 16px;
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0 auto 20px; /* จัดกึ่งกลาง */
+}
+
+/* --- ปุ่มจอง (Button) --- */
+.btn-book {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: 2px solid #2e7d32;
+  background-color: transparent;
+  color: #2e7d32;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-book:hover {
+  background-color: #2e7d32;
+  color: white;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+  transform: scale(1.02);
+}
+
+.btn-book:active {
+  transform: scale(0.98);
+}
+
+/* Animation การปรากฏตัว */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 640px) {
+  .service-icon-wrapper {
+    height: 140px;
+    font-size: 60px;
+  }
+  .service-content {
+    padding: 20px;
+  }
+}
