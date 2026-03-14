@@ -59,7 +59,7 @@ body {
 .logo-text {
   font-size: 26px;
   font-weight: 800;
-  background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+  background: linear-gradient(135deg, #5A2D0C 0%, #C4956A 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -81,7 +81,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #2E7D32;
+  color: #5A2D0C;
 }
 
 /* ปุ่ม Login / Register */
@@ -102,11 +102,11 @@ body {
 }
 
 .btn-login:hover {
-  color: #2E7D32;
+  color: #5A2D0C;
 }
 
 .btn-register {
-  background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+  background: linear-gradient(135deg, #5A2D0C 0%, #C4956A 100%);
   border: none;
   color: #fff;
   padding: 10px 25px;
@@ -130,7 +130,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 60px 8% 100px;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F0FDF4 100%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF3E8 100%);
   min-height: 80vh;
 }
 
@@ -143,8 +143,8 @@ body {
 .badge {
   display: inline-block;
   padding: 8px 16px;
-  background-color: #E8F5E9;
-  color: #2E7D32;
+  background-color: #FAF3E8;
+  color: #5A2D0C;
   border-radius: 30px;
   font-size: 14px;
   font-weight: 600;
@@ -161,7 +161,7 @@ body {
 }
 
 .highlight-text {
-  color: #4CAF50;
+  color: #C4956A;
 }
 
 .hero-subtitle {
@@ -179,7 +179,7 @@ body {
 }
 
 .btn-main {
-  background-color: #2E7D32;
+  background-color: #5A2D0C;
   color: #fff;
   border: none;
   padding: 18px 35px;
@@ -197,8 +197,8 @@ body {
 
 .btn-secondary {
   background-color: transparent;
-  color: #2E7D32;
-  border: 2px solid #2E7D32;
+  color: #5A2D0C;
+  border: 2px solid #5A2D0C;
   padding: 16px 35px;
   border-radius: 16px;
   font-size: 18px;

@@ -14,7 +14,7 @@
 }
 
 .list-header h1 {
-  color: #2E7D32;
+  color: #5A2D0C;
   font-size: 28px;
   margin-bottom: 10px;
 }
@@ -43,7 +43,7 @@
 .sitter-card-horizontal:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  border-color: #2E7D32; /* ไฮไลท์ขอบสีเขียวเมื่อชี้ */
+  border-color: #5A2D0C; /* ไฮไลท์ขอบสีเขียวเมื่อชี้ */
 }
 
 .sitter-thumb {
@@ -105,9 +105,9 @@
 }
 
 .service-tag-highlight {
-  background: #E8F5E9;
-  color: #2E7D32;
-  border: 1px solid #C8E6C9;
+  background: #FAF3E8;
+  color: #5A2D0C;
+  border: 1px solid #F2E5CC;
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 20px;
@@ -125,11 +125,11 @@
 }
 
 .start-label { font-size: 12px; color: #aaa; margin-right: 5px; }
-.price-text { font-size: 20px; font-weight: 800; color: #2E7D32; }
+.price-text { font-size: 20px; font-weight: 800; color: #5A2D0C; }
 
 .view-btn {
   text-decoration: none;
-  background: #2E7D32;
+  background: #5A2D0C;
   color: white;
   padding: 8px 20px;
   border-radius: 6px;
@@ -138,7 +138,7 @@
 }
 
 .view-btn:hover {
-  background: #1B5E20;
+  background: #3E1A05;
 }
 
 /* Responsive มือถือ */

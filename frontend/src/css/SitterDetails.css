@@ -93,8 +93,8 @@
 }
 
 .facility-badge {
-  background: #E8F5E9;
-  color: #2E7D32;
+  background: #FAF3E8;
+  color: #5A2D0C;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -112,7 +112,7 @@
 }
 
 .mini-map-container:hover {
-  border-color: #2E7D32;
+  border-color: #5A2D0C;
   box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
 }
 
@@ -138,14 +138,14 @@
   border: 1px solid #eee;
 }
 .booking-card.sticky { position: sticky; top: 100px; }
-.price-num { font-size: 28px; font-weight: 800; color: #2E7D32; }
+.price-num { font-size: 28px; font-weight: 800; color: #5A2D0C; }
 .btn-primary {
   width: 100%; padding: 12px; margin-top: 15px;
-  background: #2E7D32; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;
+  background: #5A2D0C; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer;
 }
 .btn-outline {
   width: 100%; padding: 12px; margin-top: 10px;
-  background: white; color: #2E7D32; border: 1px solid #2E7D32; border-radius: 8px; font-size: 16px; cursor: pointer;
+  background: white; color: #5A2D0C; border: 1px solid #5A2D0C; border-radius: 8px; font-size: 16px; cursor: pointer;
 }
 
 /* --- Modal แผนที่ใหญ่ --- */

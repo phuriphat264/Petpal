@@ -4,7 +4,7 @@
 .partner-layout {
   display: flex;
   min-height: 100vh;
-  background-color: #f3f4f6;
+  background-color: #F5ECD8;
   font-family: 'Prompt', sans-serif;
 }
 
@@ -14,7 +14,7 @@
 .partner-sidebar {
   width: 280px;
   min-height: 100vh;
-  background: #1e293b; /* Dark Navy Blue */
+  background: #2C1A0A; /* Dark Navy Blue */
   color: #e2e8f0;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@
 .profile-avatar {
   width: 45px;
   height: 45px;
-  background: #2E7D32;
+  background: #5A2D0C;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -111,7 +111,7 @@
 }
 
 .sidebar-link.active {
-  background: linear-gradient(90deg, #2E7D32 0%, #43a047 100%);
+  background: linear-gradient(90deg, #5A2D0C 0%, #B8804E 100%);
   color: white;
   box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
   border-left: none;
@@ -169,9 +169,9 @@
 }
 
 .btn-toggle-online {
-  background: #c6f6d5;
-  color: #22543d;
-  border: 1px solid #48bb78;
+  background: #F2D6A8;
+  color: #3E1A05;
+  border: 1px solid #C4956A;
   padding: 5px 15px;
   border-radius: 20px;
   font-weight: bold;
@@ -197,7 +197,7 @@
 
 .stat-icon {
   font-size: 30px;
-  background: #f0fff4;
+  background: #FAF3E8;
   width: 60px;
   height: 60px;
   display: flex;
@@ -237,7 +237,7 @@
 
 .req-info h4 { margin: 0 0 5px 0; }
 .req-info p { margin: 0; color: #666; font-size: 14px; }
-.price-tag { color: #2E7D32; font-weight: bold; }
+.price-tag { color: #5A2D0C; font-weight: bold; }
 
 .req-actions button {
   padding: 8px 15px;
@@ -247,7 +247,7 @@
   margin-left: 5px;
 }
 
-.btn-accept { background: #2E7D32; color: white; }
+.btn-accept { background: #5A2D0C; color: white; }
 .btn-decline { background: #fee2e2; color: #c53030; }
 
 /* Task List */
@@ -259,15 +259,15 @@
   border-radius: 4px;
 }
 
-.task-card.completed { border-left-color: #48bb78; opacity: 0.7; }
+.task-card.completed { border-left-color: #C4956A; opacity: 0.7; }
 .task-card.in-progress { border-left-color: #ecc94b; background: #fffff0; }
-.task-card.active { border-left-color: #4299e1; }
+.task-card.active { border-left-color: #C4956A; }
 
 .btn-quick-report {
   display: inline-block;
   margin-top: 5px;
   font-size: 12px;
-  color: #3182ce;
+  color: #5A2D0C;
   text-decoration: none;
 }
 
@@ -333,7 +333,7 @@
 .switch input { opacity: 0; width: 0; height: 0; }
 .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
 .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; }
-input:checked + .slider { background-color: #2E7D32; }
+input:checked + .slider { background-color: #5A2D0C; }
 input:checked + .slider:before { transform: translateX(20px); }
 
 /* =========================================
@@ -358,7 +358,7 @@ input:checked + .slider:before { transform: translateX(20px); }
 }
 
 .job-card-mini:hover { background: #f9f9f9; }
-.job-card-mini.active { border: 2px solid #2E7D32; background: #E8F5E9; }
+.job-card-mini.active { border: 2px solid #5A2D0C; background: #FAF3E8; }
 
 .job-icon {
   font-size: 24px; margin-right: 15px;
@@ -400,9 +400,9 @@ input:checked + .slider:before { transform: translateX(20px); }
 }
 
 .tag-btn.selected {
-  background: #2E7D32;
+  background: #5A2D0C;
   color: white;
-  border-color: #2E7D32;
+  border-color: #5A2D0C;
 }
 
 .report-form-card textarea {
@@ -413,7 +413,7 @@ input:checked + .slider:before { transform: translateX(20px); }
 
 .btn-send-report {
   width: 100%; padding: 12px;
-  background: #2E7D32; color: white;
+  background: #5A2D0C; color: white;
   border: none; border-radius: 8px;
   font-size: 16px; cursor: pointer;
 }
@@ -430,7 +430,7 @@ input:checked + .slider:before { transform: translateX(20px); }
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.main-balance { background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%); }
+.main-balance { background: linear-gradient(135deg, #5A2D0C 0%, #C4956A 100%); }
 .pending-balance { background: linear-gradient(135deg, #F57C00 0%, #FFB74D 100%); }
 
 .balance-amount { font-size: 32px; font-weight: bold; margin: 10px 0; }
@@ -452,10 +452,10 @@ input:checked + .slider:before { transform: translateX(20px); }
 .transaction-table th { color: #888; font-weight: normal; }
 
 .status-badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; }
-.status-badge.completed { background: #E8F5E9; color: #2E7D32; }
+.status-badge.completed { background: #FAF3E8; color: #5A2D0C; }
 .status-badge.pending { background: #FFF3E0; color: #F57C00; }
 
-.amount.income { color: #2E7D32; font-weight: bold; }
+.amount.income { color: #5A2D0C; font-weight: bold; }
 .amount.withdraw { color: #C53030; font-weight: bold; }
 
 /* Responsive For Content Pages */

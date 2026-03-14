@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); /* พื้นหลังเขียวอ่อน */
+  background: linear-gradient(135deg, #FAF3E8 0%, #F2E5CC 100%); /* พื้นหลังเขียวอ่อน */
   padding: 40px 20px;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .register-header h2 {
-  color: #2E7D32;
+  color: #5A2D0C;
   margin-bottom: 5px;
   text-align: center;
 }
@@ -58,7 +58,7 @@
 
 .role-btn.active {
   background: white;
-  color: #2E7D32;
+  color: #5A2D0C;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -85,7 +85,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #2E7D32;
+  border-color: #5A2D0C;
   box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
 }
 
@@ -113,7 +113,7 @@
 .btn-submit {
   width: 100%;
   padding: 14px;
-  background: #2E7D32;
+  background: #5A2D0C;
   color: white;
   border: none;
   border-radius: 8px;
@@ -124,7 +124,7 @@
 }
 
 .btn-submit:hover {
-  background: #1B5E20;
+  background: #3E1A05;
 }
 
 .register-footer {
@@ -134,7 +134,7 @@
 }
 
 .link-login {
-  color: #2E7D32;
+  color: #5A2D0C;
   text-decoration: none;
   font-weight: bold;
 }

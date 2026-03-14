@@ -43,7 +43,7 @@
 /* ส่วนหัวของการ์ด (ที่วางไอคอน) */
 .service-icon-wrapper {
   height: 160px;
-  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  background: linear-gradient(135deg, #FAF3E8 0%, #F2E5CC 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,8 +84,8 @@
 .service-price {
   font-size: 18px;
   font-weight: 700;
-  color: #2e7d32;
-  background-color: #f1f8e9;
+  color: #5A2D0C;
+  background-color: #F2E5CC;
   padding: 8px 16px;
   border-radius: 50px;
   display: inline-block;
@@ -97,9 +97,9 @@
   width: 100%;
   padding: 14px;
   border-radius: 16px;
-  border: 2px solid #2e7d32;
+  border: 2px solid #5A2D0C;
   background-color: transparent;
-  color: #2e7d32;
+  color: #5A2D0C;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
@@ -110,7 +110,7 @@
 }
 
 .btn-book:hover {
-  background-color: #2e7d32;
+  background-color: #5A2D0C;
   color: white;
   box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
   transform: scale(1.02);

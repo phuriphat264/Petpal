@@ -16,7 +16,7 @@
 
 .articles-header h1 {
   font-size: 36px;
-  color: #2E7D32;
+  color: #5A2D0C;
   margin-bottom: 10px;
 }
 
@@ -45,9 +45,9 @@
 }
 
 .tab-btn:hover, .tab-btn.active {
-  background: #2E7D32;
+  background: #5A2D0C;
   color: white;
-  border-color: #2E7D32;
+  border-color: #5A2D0C;
 }
 
 /* Grid Layout */
@@ -94,7 +94,7 @@
   top: 15px;
   right: 15px;
   background: rgba(255,255,255,0.9);
-  color: #2E7D32;
+  color: #5A2D0C;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
@@ -131,7 +131,7 @@
 
 .read-more-link {
   text-decoration: none;
-  color: #2E7D32;
+  color: #5A2D0C;
   font-weight: bold;
   font-size: 14px;
   transition: padding 0.3s;
@@ -143,7 +143,7 @@
 
 /* Footer CTA */
 .articles-footer-cta {
-  background: #E8F5E9;
+  background: #FAF3E8;
   padding: 40px;
   border-radius: 20px;
   text-align: center;
@@ -166,7 +166,7 @@
 
 .subscribe-box button {
   padding: 10px 20px;
-  background: #2E7D32;
+  background: #5A2D0C;
   color: white;
   border: none;
   border-radius: 8px;

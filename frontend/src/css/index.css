@@ -27,3 +27,18 @@ body {
   max-width: 100%; /* สำคัญมาก! ต้องแก้จาก 1280px เป็น 100% */
   text-align: left; /* แก้จาก center เป็น left */
 }
+/* ─── PetPal Color Variables ─── */
+:root {
+  --pp-bg-primary:    #FAF3E8;
+  --pp-bg-secondary:  #F2E5CC;
+  --pp-bg-page:       #EDE0C8;
+  --pp-brown-dark:    #5A2D0C;
+  --pp-brown-mid:     #7A5C3A;
+  --pp-brown-light:   #C4956A;
+  --pp-tan:           #D4A574;
+  --pp-red-bullet:    #D9534F;
+  --pp-green-nature:  #7A9E6E;
+  --pp-radius-card:   14px;
+  --pp-radius-inner:  10px;
+  --pp-border:        0.5px solid var(--pp-brown-light);
+}

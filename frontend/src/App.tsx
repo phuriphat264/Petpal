@@ -126,7 +126,7 @@ const App: React.FC = () => {
             <a href="/MyBookings" className="nav-link">การจอง</a>
             <a href="/PartnerReports" className="nav-link">report</a>
             <a href="/PartnerServices" className="nav-link">ร้านบริการ</a>
-            <a href="/PartnerWallet" className="nav-link">กระเป๋าร้าน</a>
+           
           </div>
 
           <div className="auth-buttons">

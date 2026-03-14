@@ -52,8 +52,8 @@
 }
 
 .sitter-item:hover, .sitter-item.active {
-  border-color: #2E7D32;
-  background-color: #F1F8E9;
+  border-color: #5A2D0C;
+  background-color: #F2E5CC;
   transform: scale(1.02);
 }
 
@@ -75,7 +75,7 @@
 }
 
 .price {
-  color: #2E7D32;
+  color: #5A2D0C;
   font-weight: bold;
   margin-bottom: 8px;
 }
