@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>PeerJS Video Call</title>
+    <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding: 20px;">
+    
+    <h1>📞 ทดสอบ Video Call ด้วย PeerJS</h1>
+
+    <div style="background: #f0f0f0; padding: 20px; border-radius: 8px; margin-bottom: 20px; display: inline-block;">
+        <p>ID ของคุณคือ: <span id="my-id" style="font-weight: bold; color: #d93025; font-size: 1.2em;">กำลังโหลด...</span></p>
+        
+        <input type="text" id="friend-id" placeholder="ใส่ ID ของเพื่อนที่นี่" style="padding: 10px; width: 200px;">
+        <button id="call-btn" style="padding: 10px 20px; background: #1a73e8; color: white; border: none; cursor: pointer;">โทรหาเพื่อน</button>
+    </div>
+
+    <div>
+        <video id="my-video" autoplay playsinline muted style="width: 300px; border: 3px solid #34a853; border-radius: 8px; margin: 10px; transform: scaleX(-1);"></video>
+        <video id="remote-video" autoplay playsinline style="width: 300px; border: 3px solid #ea4335; border-radius: 8px; margin: 10px;"></video>
+    </div>
+
+    <script>
+        // 1. เริ่มต้นเชื่อมต่อ PeerJS Server (ใช้เซิร์ฟเวอร์ฟรีของเขาไปก่อน)
+        const peer = new Peer();
+        let localStream;
+
+        // 2. เมื่อได้ ID จากเซิร์ฟเวอร์ ให้นำมาแสดงบนหน้าเว็บ
+        peer.on('open', (id) => {
+            document.getElementById('my-id').innerText = id;
+        });
+
+        // 3. ขออนุญาตเปิดกล้องและไมค์
+        navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then((stream) => {
+                localStream = stream;
+                // เอากล้องเราไปแสดงในกรอบสีเขียว
+                document.getElementById('my-video').srcObject = stream;
+
+                // 4. รอรับสาย: เมื่อมีคนอื่นเอา ID เราไปกดโทรหา
+                peer.on('call', (call) => {
+                    // กดรับสายอัตโนมัติ พร้อมส่งภาพ/เสียงของเรากลับไป
+                    call.answer(localStream);
+                    
+                    // เมื่อได้รับภาพ/เสียงของเพื่อน ให้นำมาแสดงในกรอบสีแดง
+                    call.on('stream', (remoteStream) => {
+                        document.getElementById('remote-video').srcObject = remoteStream;
+                    });
+                });
+            })
+            .catch((err) => {
+                console.error('ไม่สามารถเปิดกล้องได้:', err);
+                alert('อย่าลืมกดอนุญาตให้เว็บเข้าถึงกล้องและไมค์นะครับ!');
+            });
+
+        // 5. สั่งโทรออก: เมื่อเราเอา ID เพื่อนมาใส่แล้วกดปุ่ม "โทรหาเพื่อน"
+        document.getElementById('call-btn').addEventListener('click', () => {
+            const friendId = document.getElementById('friend-id').value;
+            if (!friendId) return alert('กรุณาใส่ ID ของเพื่อนก่อนครับ');
+
+            // สั่งโทรออก พร้อมส่งภาพ/เสียงของเราไปหาเพื่อน
+            const call = peer.call(friendId, localStream);
+            
+            // เมื่อเพื่อนรับสายและส่งภาพ/เสียงกลับมา ให้นำมาแสดง
+            call.on('stream', (remoteStream) => {
+                document.getElementById('remote-video').srcObject = remoteStream;
+            });
+        });
+    </script>
+</body>
+</html>
