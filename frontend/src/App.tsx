@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // 1. นำเข้า Router
 import './css/App.css';
 import catImage from './assets/cat.jpg';
-import Services from './Services'; // นำเข้าไฟล์ Services
-import MapPage from './MapPage';
-import SitterDetails from './SitterDetails';
-import Articles from './Articles';
-import Reviews from './Reviews';
-import ServiceList from './ServiceList';
-import Register from './Register';
-import Login from './Login';
+import Services from './pages/Services'; // นำเข้าไฟล์ Services
+import MapPage from './pages/MapPage';
+import SitterDetails from './pages/SitterDetails';
+import Articles from './pages/Articles';
+import Reviews from './pages/Reviews';
+import ServiceList from './pages/ServiceList';
+import Register from './pages/Register';
+import Login from './pages/Login';
 import PartnerDashboard from './Partner/PartnerDashboard';
 import PartnerServices from './Partner/PartnerServices';
 import PartnerSidebar from './component/PartnerSidebar';
@@ -113,20 +113,9 @@ const App: React.FC = () => {
             {/* ใช้ Link แทน <a> เพื่อเปลี่ยนหน้าโดยไม่โหลดใหม่ */}
             <Link to="/" className="nav-link">หน้าหลัก</Link>
             
-            {/* 🔴 จุดสำคัญ: ปุ่มนี้จะลิงก์ไปหน้า Services */}
             <Link to="/services" className="nav-link">บริการ</Link> 
-            {/* 🔴 จุดสำคัญ: ปุ่มนี้จะลิงก์ไปหน้า Services */}
-            <Link to="/MapPage" className="nav-link">แผนที่</Link> 
+          
             <a href="/Reviews" className="nav-link">รีวิว</a>
-            <a href="/Articles" className="nav-link">บทความ</a>
-            <a href="/AddPet" className="nav-link">เพิ่มสัตว์</a>
-            <a href="/MyPets" className="nav-link">สัตว์ของฉัน</a>
-
-            <a href="/Tracking" className="nav-link">รายงานที่ทำ</a>
-            <a href="/MyBookings" className="nav-link">การจอง</a>
-            <a href="/PartnerReports" className="nav-link">report</a>
-            <a href="/PartnerServices" className="nav-link">ร้านบริการ</a>
-           
           </div>
 
           <div className="auth-buttons">
