@@ -20,7 +20,8 @@ import MyBookings from './User/MyBookings';
 import Tracking from './User/Tracking';
 import PetDetails from './User/PetDetails';
 import AddPet from './User/AddPet';
-
+import LiveCam from './User/LiveCam';
+import PetMatcher from './User/PetMatcher';
 import HealthRecord from './User/HealthRecord';
 
 // 2. สร้าง Component หน้าแรก (Home) 
@@ -154,6 +155,8 @@ const App: React.FC = () => {
           <Route path="/pet/:id" element={<PetDetails />} />
           <Route path="/AddPet" element={<AddPet />} />
           <Route path="/pet/:id/health" element={<HealthRecord />} />
+          <Route path="/livecam" element={<LiveCam />} />
+          <Route path="/pet-matcher" element={<PetMatcher />} />  
         </Routes>
           
         {/* Footer (แสดงทุกหน้า) */}
