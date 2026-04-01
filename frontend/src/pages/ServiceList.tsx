@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import './css/ServiceList.css'
+import '../css/ServiceList.css'
 const ServiceList: React.FC = () => {
   const { type } = useParams(); // รับค่าประเภทบริการจาก URL (เช่น grooming)
 

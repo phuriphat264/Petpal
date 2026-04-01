@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './css/Register.css';
+import '../css/Register.css';
 
 const Register: React.FC = () => {
   const navigate = useNavigate();

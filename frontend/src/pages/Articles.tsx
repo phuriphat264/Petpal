@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './css/Articles.css'
+import '../css/Articles.css'
 const Articles: React.FC = () => {
   // ข้อมูลจำลองบทความ (Mock Data)
   const articles = [

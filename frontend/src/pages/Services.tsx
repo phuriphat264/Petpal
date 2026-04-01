@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // 1. Import Link เข้ามา
-import './css/Services.css';
+import '../css/Services.css';
 
 const Services: React.FC = () => {
   // 2. เพิ่ม key 'type' ให้ตรงกับที่เราตั้งใน Route (boarding, daycare, walking, grooming)

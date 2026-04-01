@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import './css/SitterDetails.css'
+import '../css/SitterDetails.css'
 // --- ส่วนแก้ Bug ไอคอนหมุดไม่ขึ้นใน React Leaflet ---
 import iconMarker from 'leaflet/dist/images/marker-icon.png';
 import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';

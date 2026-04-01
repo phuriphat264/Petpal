@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './css/Reviews.css'
+import '../css/Reviews.css'
 const Reviews: React.FC = () => {
   // State สำหรับ Filter (ทั้งหมด, สุนัข, แมว)
   const [filter, setFilter] = useState<'all' | 'dog' | 'cat' | 'other'>('all');

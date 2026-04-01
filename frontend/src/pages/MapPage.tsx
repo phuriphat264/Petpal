@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'; // นำเข้า useNavigat
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import './css/MapPage.css';
+import '../css/MapPage.css';
 // --- ส่วนแก้ Bug ไอคอนหมุดไม่ขึ้นใน React Leaflet (สำคัญมาก) ---
 import iconMarker from 'leaflet/dist/images/marker-icon.png';
 import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
