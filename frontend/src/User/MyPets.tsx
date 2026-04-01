@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // อย่าลืม import Link
-import '../css/User.css';
+import { Link } from 'react-router-dom';
+import '../css/App.css'; // ดึงสไตล์พื้นฐานมาใช้
+import '../css/User.css'; // สไตล์เฉพาะของหน้า User
 
 const MyPets: React.FC = () => {
   // Mock Data: ข้อมูลสัตว์เลี้ยงจำลอง
@@ -11,7 +12,7 @@ const MyPets: React.FC = () => {
       type: "แมว",
       breed: "Scottish Fold",
       age: "2 ปี",
-      image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=300",
+      image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=500&auto=format&fit=crop",
       alert: false
     },
     {
@@ -20,58 +21,61 @@ const MyPets: React.FC = () => {
       type: "สุนัข",
       breed: "Corgi",
       age: "1 ปี 6 เดือน",
-      image: "https://images.unsplash.com/photo-1589965716319-4a041a5fd37d?w=300",
+      image: "https://images.unsplash.com/photo-1589965716319-4a041a5fd37d?w=500&auto=format&fit=crop",
       alert: true // แจ้งเตือน: ข้อมูลไม่ครบ
     }
   ];
 
   return (
-    <div className="user-container">
-      <div className="page-title">
-        🐾 สัตว์เลี้ยงของฉัน
-      </div>
+    <div className="page-container">
+      <div className="mypets-wrapper">
+        
+        {/* หัวข้อหน้า */}
+        <div className="section-header" style={{ textAlign: 'center', marginTop: '30px', marginBottom: '40px' }}>
+          <h2 className="section-title">🐾 สัตว์เลี้ยงของฉัน</h2>
+          <p className="section-subtitle">จัดการข้อมูลและประวัติสุขภาพของลูกรักคุณ</p>
+        </div>
 
-      <div className="pet-grid">
-        {/* วนลูปแสดงรายการสัตว์เลี้ยง */}
-        {pets.map((pet) => (
-          // ✅ ใช้ Link ครอบเพื่อให้กดแล้วไปหน้า PetDetails ได้
-          <Link 
-            to={`/pet/${pet.id}`} 
-            key={pet.id} 
-            style={{ textDecoration: 'none', color: 'inherit' }} // ลบเส้นใต้ Link ออก
-          >
-            <div className="pet-card">
-              <img src={pet.image} alt={pet.name} className="pet-img" />
-              <div className="pet-info">
-                <h3>{pet.name}</h3>
-                <p>{pet.type} • {pet.breed}</p>
-                <p>อายุ: {pet.age}</p>
+        <div className="pet-grid">
+          {/* วนลูปแสดงรายการสัตว์เลี้ยง */}
+          {pets.map((pet) => (
+            <Link 
+              to={`/pet/${pet.id}`} 
+              key={pet.id} 
+              className="pet-card-link"
+            >
+              <div className="pet-card">
+                <div className="pet-img-container">
+                  <img src={pet.image} alt={pet.name} className="pet-img" />
+                  {/* แสดงป้ายเตือน ถ้ามี alert = true */}
+                  {pet.alert && (
+                    <div className="pet-alert-badge">
+                      ⚠️ กรุณาอัปเดตวัคซีน
+                    </div>
+                  )}
+                </div>
                 
-                {/* แสดงป้ายเตือน ถ้ามี alert = true */}
-                {pet.alert && (
-                  <span className="badge-warning">⚠️ กรุณาอัปเดตวัคซีน</span>
-                )}
+                <div className="pet-info">
+                  <div className="pet-info-header">
+                    <h3>{pet.name}</h3>
+                    <div className="edit-icon">✏️</div>
+                  </div>
+                  <p className="pet-breed">{pet.type} • {pet.breed}</p>
+                  <div className="pet-age-badge">🎂 อายุ: {pet.age}</div>
+                </div>
               </div>
-              
-              {/* ไอคอนดินสอตกแต่ง */}
-              <div style={{position: 'absolute', top: '15px', right: '15px', color: '#ccc'}}>
-                 ✏️
-              </div>
+            </Link>
+          ))}
+
+          {/* การ์ดสำหรับกดเพิ่มสัตว์เลี้ยงใหม่ */}
+          <Link to="/AddPet" className="add-pet-link">
+            <div className="add-pet-card">
+              <div className="add-icon-circle">➕</div>
+              <span>เพิ่มสัตว์เลี้ยงใหม่</span>
             </div>
           </Link>
-        ))}
-
-        {/* การ์ดสำหรับกดเพิ่มสัตว์เลี้ยงใหม่ */}
-        {/* (ในอนาคตสามารถเปลี่ยน div เป็น Link ไปหน้า AddPet ได้) */}
-        
-        <Link to="/AddPet" style={{textDecoration:'none', color:'inherit'}}>
-          <div className="add-pet-card">
-             <div className="add-icon">➕</div>
-             <span>เพิ่มสัตว์เลี้ยงใหม่</span>
-          </div>
-        </Link>
-         
-        
+          
+        </div>
       </div>
     </div>
   );

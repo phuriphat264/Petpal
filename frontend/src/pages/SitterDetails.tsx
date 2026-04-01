@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+// 👉 1. เพิ่ม useNavigate ตรงนี้
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import '../css/SitterDetails.css'
+import '../css/SitterDetails.css';
+
 // --- ส่วนแก้ Bug ไอคอนหมุดไม่ขึ้นใน React Leaflet ---
 import iconMarker from 'leaflet/dist/images/marker-icon.png';
 import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
@@ -24,6 +26,9 @@ L.Marker.prototype.options.icon = defaultIcon;
 const SitterDetails: React.FC = () => {
   const { id } = useParams();
   const [showMapModal, setShowMapModal] = useState(false); // State เปิด/ปิดแผนที่ใหญ่
+  
+  // 👉 2. ประกาศตัวแปร navigate เพื่อใช้เปลี่ยนหน้า
+  const navigate = useNavigate();
 
   // --- 1. ข้อมูลจำลองร้าน (Mock Data) ---
   const allSitters = [
@@ -79,6 +84,12 @@ const SitterDetails: React.FC = () => {
 
   // ค้นหา Sitter ตาม ID (ถ้าไม่เจอให้เอาคนแรกเป็นค่า Default กัน Error)
   const sitter = allSitters.find(s => s.id === Number(id)) || allSitters[0];
+
+  // 👉 3. ฟังก์ชันจัดการเมื่อกดปุ่มจอง
+  const handleBookingClick = () => {
+    // พาผู้ใช้ไปหน้า /checkout พร้อมส่งข้อมูลร้าน (sitter) ไปด้วย
+    navigate('/checkout', { state: { sitter } });
+  };
 
   // --- 2. ข้อมูลจำลองรีวิว (Mock Reviews) ---
   const reviewsList = [
@@ -253,7 +264,11 @@ const SitterDetails: React.FC = () => {
                     <div style={{ color: '#666', marginTop: '5px' }}>เลือกวันที่</div>
                 </div>
 
-                <button className="btn-primary">📅 จองเลย</button>
+                {/* 👉 4. เพิ่ม onClick={handleBookingClick} ที่ปุ่มนี้ */}
+                <button className="btn-primary" onClick={handleBookingClick}>
+                    📅 จองเลย
+                </button>
+                
                 <button className="btn-outline">💬 ทักแชทสอบถาม</button>
                 <p style={{ textAlign: 'center', fontSize: '12px', color: '#999', marginTop: '10px' }}>
                     คุณจะยังไม่ถูกตัดเงินทันที

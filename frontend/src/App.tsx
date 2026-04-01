@@ -23,6 +23,7 @@ import AddPet from './User/AddPet';
 import LiveCam from './User/LiveCam';
 import PetMatcher from './User/PetMatcher';
 import HealthRecord from './User/HealthRecord';
+import BookingCheckout from './User/BookingCheckout';
 
 // 2. สร้าง Component หน้าแรก (Home) 
 // (เอา Hero Section และ Features มาใส่ไว้ในนี้ เพื่อให้เป็นระเบียบ)
@@ -109,14 +110,15 @@ const App: React.FC = () => {
               <span className="logo-text">PetPal</span>
             </Link>
           </div>
-
+ 
           <div className="nav-links">
-            {/* ใช้ Link แทน <a> เพื่อเปลี่ยนหน้าโดยไม่โหลดใหม่ */}
+            {/* 💡 เปลี่ยน <a> เป็น <Link> เพื่อให้เปลี่ยนหน้าแบบไม่กระตุก */}
             <Link to="/" className="nav-link">หน้าหลัก</Link>
-            
             <Link to="/services" className="nav-link">บริการ</Link> 
-          
-            <a href="/Reviews" className="nav-link">รีวิว</a>
+            <Link to="/Reviews" className="nav-link">รีวิว</Link>
+            <Link to="/livecam" className="nav-link">กล้อง</Link>
+            <Link to="/pet-matcher" className="nav-link">จับคู่</Link>
+            <Link to="/MyPets" className="nav-link">สัตว์เลี้ยง</Link>
           </div>
 
           <div className="auth-buttons">
@@ -129,35 +131,34 @@ const App: React.FC = () => {
           </div>
         </nav>
 
-        {/* ส่วนกำหนดเส้นทาง (Routes) */}
-        <Routes>
-          {/* ถ้า path เป็น / ให้แสดง Home */}
-          <Route path="/" element={<Home />} />
-          
-          {/* ถ้า path เป็น /services ให้แสดง Services (จากไฟล์ Services.tsx) */}
-          <Route path="/services" element={<Services />} />
-          {/* ถ้า path เป็น /services ให้แสดง Services (จากไฟล์ Services.tsx) */}
-          <Route path="/MapPage"  element={<MapPage />} />
-          <Route path="/sitter/:id" element={<SitterDetails />} />
-          <Route path="/Articles" element={<Articles />} />
-          <Route path="/Reviews" element={<Reviews />} />
-          <Route path="/list/:type" element={<ServiceList />} />
-          <Route path="/Register" element={<Register />}/>
-          <Route path="/Login" element={<Login />}/>
-          <Route path="/PartnerDashboard" element={<PartnerDashboard />}/>
-          <Route path="/PartnerServices" element={<PartnerServices />}/>
-          <Route path="/PartnerSidebar" element={<PartnerSidebar />}/>
-          <Route path="/PartnerReports" element={<PartnerReports />}/>
-          <Route path="/PartnerWallet" element={<PartnerWallet />}/>
-          <Route path="/MyBookings" element={<MyBookings />}/>
-          <Route path="/MyPets" element={<MyPets />}/>
-          <Route path="/Tracking" element={<Tracking />}/>
-          <Route path="/pet/:id" element={<PetDetails />} />
-          <Route path="/AddPet" element={<AddPet />} />
-          <Route path="/pet/:id/health" element={<HealthRecord />} />
-          <Route path="/livecam" element={<LiveCam />} />
-          <Route path="/pet-matcher" element={<PetMatcher />} />  
-        </Routes>
+        {/* 🔥 เพิ่ม <main className="main-content"> มาครอบ Routes ตรงนี้ 🔥 */}
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/MapPage"  element={<MapPage />} />
+            <Route path="/sitter/:id" element={<SitterDetails />} />
+            <Route path="/Articles" element={<Articles />} />
+            <Route path="/Reviews" element={<Reviews />} />
+            <Route path="/list/:type" element={<ServiceList />} />
+            <Route path="/Register" element={<Register />}/>
+            <Route path="/Login" element={<Login />}/>
+            <Route path="/PartnerDashboard" element={<PartnerDashboard />}/>
+            <Route path="/PartnerServices" element={<PartnerServices />}/>
+            <Route path="/PartnerSidebar" element={<PartnerSidebar />}/>
+            <Route path="/PartnerReports" element={<PartnerReports />}/>
+            <Route path="/PartnerWallet" element={<PartnerWallet />}/>
+            <Route path="/MyBookings" element={<MyBookings />}/>
+            <Route path="/MyPets" element={<MyPets />}/>
+            <Route path="/Tracking" element={<Tracking />}/>
+            <Route path="/pet/:id" element={<PetDetails />} />
+            <Route path="/AddPet" element={<AddPet />} />
+            <Route path="/pet/:id/health" element={<HealthRecord />} />
+            <Route path="/livecam" element={<LiveCam />} />
+            <Route path="/pet-matcher" element={<PetMatcher />} />  
+            <Route path="/checkout" element={<BookingCheckout />} />         
+          </Routes>
+        </main>
           
         {/* Footer (แสดงทุกหน้า) */}
         <footer className="footer">

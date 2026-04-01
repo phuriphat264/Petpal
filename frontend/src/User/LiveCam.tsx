@@ -1,51 +1,83 @@
 import React, { useState } from 'react';
-import '../css/App.css'; // ปรับ path ให้ตรงกับโปรเจกต์ของคุณ
+import '../css/App.css';
 import '../css/LiveCam.css';
 
 const LiveCam: React.FC = () => {
-  const [isMicOn, setIsMicOn] = useState(false);
+  const [isMicActive, setIsMicActive] = useState(false);
 
   return (
     <div className="page-container">
-      <div className="section-header" style={{ textAlign: 'center', marginTop: '40px', marginBottom: '30px' }}>
-        <h2 className="section-title">🎥 Live Cam 24 ชม.</h2>
-        <p className="section-subtitle">ดูลูกรักของคุณได้ตลอดเวลา เหมือนอยู่ใกล้ๆ กัน</p>
-      </div>
-
-      <div className="live-cam-container">
-        {/* รายละเอียดน้องสัตว์เลี้ยง */}
-        <div className="cam-header">
-          <div className="pet-cam-info">
-            <span className="pet-avatar">🐶</span>
-            <div>
-              <h3 style={{ margin: 0, color: '#1a1a24' }}>น้องบราวนี่ (Brownie)</h3>
-              <p style={{ margin: 0, fontSize: '14px', color: '#666' }}>ฝากอยู่ที่: บ้านป้าใจดีโฮมสเตย์</p>
-            </div>
+      <div className="livecam-wrapper">
+        
+        {/* Header Section */}
+        <div className="livecam-header">
+          <button className="back-btn">❮</button>
+          <div className="header-title">
+            <h2>Live Cam</h2>
+            <p>ห้องนอน • 24 ชั่วโมง</p>
           </div>
-          <div className="live-badge">
+          <div className="header-actions">
+            <button className="icon-circle">⚙️</button>
+            <div className="pet-mini-avatar">🐶</div>
+          </div>
+        </div>
+
+        {/* Video Section */}
+        <div className="video-section">
+          <div className="video-badge-live">
             <span className="dot-pulse"></span> LIVE
           </div>
+          <button className="video-fullscreen">⛶</button>
+          
+          {/* ใส่รูปภาพหรือ Video Player ตรงนี้ */}
+          <div className="video-placeholder-image">
+             {/* จำลองรูปน้องหมา */}
+          </div>
+
+          <div className="video-footer-info">
+            <span>📶 สัญญาณดี • 1080p • 30fps</span>
+            <span>00:14:38</span>
+          </div>
         </div>
 
-        {/* ส่วนแสดงวิดีโอ */}
-        <div className="video-player">
-          {/* ใช้รูปภาพจำลองแทนวิดีโอไปก่อน สามารถเปลี่ยนเป็น <video> หรือ <iframe> ได้ */}
-          <div className="video-placeholder">
-            <p>🔴 กำลังถ่ายทอดสด...</p>
+        {/* Status Card */}
+        <div className="status-card">
+          <div className="status-icon">✓</div>
+          <div className="status-text">
+            <h4>กำลังนอนพักผ่อน</h4>
+            <p>อัปเดตเมื่อ 2 นาทีที่แล้ว</p>
           </div>
-          
-          {/* แถบเครื่องมือ */}
-          <div className="video-controls">
-            <button className="icon-btn" title="ถ่ายภาพ">📸 ถ่ายภาพ</button>
-            <button 
-              className={`icon-btn ${isMicOn ? 'active' : ''}`} 
-              onClick={() => setIsMicOn(!isMicOn)}
-            >
-              {isMicOn ? '🎙️ กำลังพูด...' : '🎤 พูดคุย'}
-            </button>
-            <button className="icon-btn" title="ขยายเต็มจอ">⛶ เต็มจอ</button>
+          <div className="status-badge">ปลอดภัย</div>
+        </div>
+
+        {/* Controls Section */}
+        <div className="controls-section">
+          <h3>ควบคุม</h3>
+          <div className="control-buttons-grid">
+            <div className="control-item">
+              <button 
+                className={`control-circle ${isMicActive ? 'active' : ''}`}
+                onClick={() => setIsMicActive(!isMicActive)}
+              >
+                {isMicActive ? '🎙️' : '🎤'}
+              </button>
+              <span>พูดคุย</span>
+            </div>
+            <div className="control-item">
+              <button className="control-circle">⏺️</button>
+              <span>บันทึก</span>
+            </div>
+            <div className="control-item">
+              <button className="control-circle">📷</button>
+              <span>ถ่ายรูป</span>
+            </div>
+            <div className="control-item">
+              <button className="control-circle alert">🔔</button>
+              <span>เรียกน้อง</span>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   );

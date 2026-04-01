@@ -387,3 +387,15 @@ body {
     width: 100%;
   }
 }
+/* --- แก้ปัญหา Footer ลอย --- */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.main-content {
+  flex: 1; /* ตัวนี้แหละที่จะยืดตัวดัน Footer ลงไป */
+  display: flex;
+  flex-direction: column;
+}

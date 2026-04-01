@@ -1,139 +1,165 @@
 /* =========================================
-   AI Matcher Styles
+   Pet Matcher Styles (Web Theme Adaptation)
 ========================================= */
-.matcher-form-card {
+.matcher-wrapper {
   max-width: 600px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  margin: 40px auto;
+  background: #fdfaf6;
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
   border: 1px solid #f0e6d9;
 }
 
-.form-group { margin-bottom: 25px; }
-.form-group label {
-  display: block;
+.matcher-header {
+  margin-bottom: 25px;
+}
+
+.matcher-header h2 {
+  margin: 0 0 5px 0;
+  font-size: 24px;
+  color: #3e2723;
+}
+
+.matcher-header p {
+  margin: 0;
+  color: #8D5A3A;
+  font-size: 15px;
+}
+
+/* AI Card */
+.ai-smart-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  border: 1px solid #f0e6d9;
+  margin-bottom: 30px;
+}
+
+.ai-card-title {
   font-weight: bold;
-  margin-bottom: 12px;
-  color: #1a1a24;
-}
-
-.input-field {
-  width: 100%;
-  padding: 12px 16px;
-  border: 2px solid #f0e6d9;
-  border-radius: 12px;
-  font-family: inherit;
+  color: #3e2723;
   font-size: 16px;
-  box-sizing: border-box;
+  margin-bottom: 15px;
 }
 
-.trait-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.trait-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.ai-textarea {
+  width: 100%;
+  height: 80px;
+  background: #f4eee6;
+  border: none;
+  border-radius: 15px;
   padding: 15px;
-  border: 2px solid #f0e6d9;
-  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #3e2723;
+  resize: none;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.ai-textarea::placeholder {
+  color: #a1887f;
+}
+
+.btn-ai-submit {
+  width: 100%;
+  background: #4a3b32; /* สีน้ำตาลเข้มแบบในรูป */
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.trait-btn:hover { background: #fdfaf6; border-color: #8D5A3A; }
+.btn-ai-submit:hover {
+  background: #3e2723;
+}
 
-.submit-btn {
-  width: 100%;
-  padding: 16px;
-  font-size: 18px;
-  background: #6a4a3a;
-  color: #fff;
+/* Divider */
+.divider-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.divider-line {
+  flex-grow: 1;
   border: none;
+  height: 1px;
+  background-color: #e0d4c8;
+}
+
+.divider-text {
+  padding: 0 15px;
+  color: #8D5A3A;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.tag-pill {
+  background: #ffffff;
+  border: 1px solid #e0d4c8;
+  color: #5c4033;
+  padding: 10px 20px;
   border-radius: 30px;
+  font-size: 14px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag-pill:hover {
+  background: #f4eee6;
+}
+
+.tag-pill.active {
+  background: #4a3b32;
+  color: #ffffff;
+  border-color: #4a3b32;
+}
+
+/* Bottom Action */
+.bottom-action {
   margin-top: 10px;
 }
 
-.submit-btn:disabled {
-  background: #ccc;
+.btn-search-tags {
+  width: 100%;
+  padding: 16px;
+  border-radius: 20px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-search-tags:disabled {
+  background: #e0d4c8;
+  color: #a1887f;
   cursor: not-allowed;
 }
 
-/* Styles สำหรับการ์ดผลลัพธ์ */
-.results-container {
-  margin-top: 20px;
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.service-card {
-  background: #fff;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-  text-align: center;
-  border: 1px solid #f5f5f5;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-top-beige {
-  background: #f4eee6;
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-content { 
-  padding: 25px 20px; 
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-content h4 { margin: 0 0 10px 0; font-size: 18px; color: #1a1a24; }
-.card-content p { color: #666; font-size: 14px; margin-bottom: 20px; line-height: 1.5; flex-grow: 1; }
-
-.price-badge {
-  display: inline-block;
-  background: #f4eee6;
-  color: #5c4033;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 15px;
-  align-self: center;
-}
-
-.ai-match-score {
-  color: #e65100;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.btn-outline {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #5c4033;
-  background: transparent;
-  color: #5c4033;
-  border-radius: 20px;
-  font-weight: bold;
+.btn-search-tags.active {
+  background: #d7ccc8; /* สีน้ำตาลอ่อนลงมานิดนึง */
+  color: #3e2723;
   cursor: pointer;
-  transition: 0.3s;
 }
-.btn-outline:hover { background: #5c4033; color: white; }
+
+.btn-search-tags.active:hover {
+  background: #bcaaa4;
+}

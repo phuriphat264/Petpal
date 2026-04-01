@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/User.css';
+import '../css/App.css';
+import '../css/User.css'; // เราจะใช้คลาสใหม่ในนี้
 
 const MyBookings: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'upcoming' | 'history'>('upcoming');
@@ -13,9 +14,10 @@ const MyBookings: React.FC = () => {
       service: "ฝากเลี้ยง (Boarding)",
       date: "12 ต.ค. - 14 ต.ค. 2024",
       price: "฿1,050",
-      status: "confirmed", // pending, confirmed, completed
+      status: "confirmed", 
       pet: "ถุงทอง",
-      type: "upcoming"
+      type: "upcoming",
+      image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=150&q=80"
     },
     {
       id: 102,
@@ -25,7 +27,8 @@ const MyBookings: React.FC = () => {
       price: "฿450",
       status: "pending",
       pet: "เจ้าดื้อ",
-      type: "upcoming"
+      type: "upcoming",
+      image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=150&q=80"
     },
     {
       id: 99,
@@ -35,74 +38,83 @@ const MyBookings: React.FC = () => {
       price: "฿200",
       status: "completed",
       pet: "ถุงทอง",
-      type: "history"
+      type: "history",
+      image: "https://images.unsplash.com/photo-1597633425046-08f5110420b5?auto=format&fit=crop&w=150&q=80"
     }
   ];
 
-  // Filter ตาม Tab
   const filteredBookings = bookings.filter(b => b.type === activeTab);
 
   const getStatusBadge = (status: string) => {
     switch(status) {
-      case 'confirmed': return <span className="status-badge confirmed">อนุมัติแล้ว</span>;
-      case 'pending': return <span className="status-badge pending">รอการตอบรับ</span>;
-      case 'completed': return <span className="status-badge completed">เสร็จสิ้น</span>;
+      case 'confirmed': return <span className="status-badge-modern confirmed">🟢 อนุมัติแล้ว</span>;
+      case 'pending': return <span className="status-badge-modern pending">⏳ รอการตอบรับ</span>;
+      case 'completed': return <span className="status-badge-modern completed">✅ เสร็จสิ้น</span>;
       default: return null;
     }
   };
 
   return (
-    <div className="user-container">
-      <div className="page-title">📅 การจองของฉัน</div>
+    <div className="page-container">
+      <div className="bookings-wrapper">
+        
+        <div className="section-header" style={{ textAlign: 'center', marginTop: '30px', marginBottom: '30px' }}>
+          <h2 className="section-title">📅 การจองของฉัน</h2>
+          <p className="section-subtitle">ติดตามสถานะและประวัติการใช้บริการของลูกรัก</p>
+        </div>
 
-      {/* Tabs */}
-      <div className="tabs">
-        <button 
-          className={`tab-btn ${activeTab === 'upcoming' ? 'active' : ''}`}
-          onClick={() => setActiveTab('upcoming')}
-        >
-          เร็วๆ นี้
-        </button>
-        <button 
-          className={`tab-btn ${activeTab === 'history' ? 'active' : ''}`}
-          onClick={() => setActiveTab('history')}
-        >
-          ประวัติการจอง
-        </button>
-      </div>
+        {/* Tabs แบบใหม่ */}
+        <div className="modern-tabs">
+          <button 
+            className={`modern-tab-btn ${activeTab === 'upcoming' ? 'active' : ''}`}
+            onClick={() => setActiveTab('upcoming')}
+          >
+            เร็วๆ นี้
+          </button>
+          <button 
+            className={`modern-tab-btn ${activeTab === 'history' ? 'active' : ''}`}
+            onClick={() => setActiveTab('history')}
+          >
+            ประวัติการจอง
+          </button>
+        </div>
 
-      {/* Booking List */}
-      <div className="booking-list">
-        {filteredBookings.length > 0 ? (
-          filteredBookings.map((booking) => (
-            <div key={booking.id} className="booking-card">
-              <div className="booking-main">
-                <div className="shop-icon">🏠</div>
-                <div className="booking-details">
-                  <h4>{booking.shopName}</h4>
-                  <p>{booking.service} • {booking.pet}</p>
-                  <p style={{fontSize:'12px', color:'#A0AEC0'}}>📅 {booking.date}</p>
+        {/* Booking List */}
+        <div className="booking-list-container">
+          {filteredBookings.length > 0 ? (
+            filteredBookings.map((booking) => (
+              <div key={booking.id} className="booking-card-modern">
+                <div className="booking-card-left">
+                  <img src={booking.image} alt={booking.shopName} className="booking-shop-img" />
+                  <div className="booking-info">
+                    <h4>{booking.shopName}</h4>
+                    <p className="booking-service">{booking.service} • 🐾 น้อง{booking.pet}</p>
+                    <p className="booking-date">📅 {booking.date}</p>
+                  </div>
+                </div>
+
+                <div className="booking-card-right">
+                  <div className="booking-price">{booking.price}</div>
+                  {getStatusBadge(booking.status)}
+                  
+                  {/* ปุ่มโชว์เฉพาะถ้าได้รับการอนุมัติ */}
+                  {booking.status === 'confirmed' && (
+                    <Link to={`/tracking/${booking.id}`} className="btn-outline-small" style={{marginTop: '10px', textAlign: 'center'}}>
+                      📍 ติดตามสถานะ
+                    </Link>
+                  )}
                 </div>
               </div>
-
-              <div className="booking-status">
-                {getStatusBadge(booking.status)}
-                <div style={{fontWeight:'bold', color:'#2E7D32', marginBottom:'5px'}}>{booking.price}</div>
-                
-                {/* ปุ่มดูสถานะ จะโชว์เฉพาะถ้าได้รับการอนุมัติแล้ว */}
-                {booking.status === 'confirmed' && (
-                  <Link to={`/tracking/${booking.id}`} className="btn-track">
-                    📍 ติดตามสถานะ
-                  </Link>
-                )}
-              </div>
+            ))
+          ) : (
+            <div className="empty-booking-state">
+               <span style={{ fontSize: '40px' }}>📭</span>
+               <h3>ไม่มีรายการจองในขณะนี้</h3>
+               <p>ลองค้นหาบริการดีๆ ให้น้องๆ ของคุณดูสิ</p>
+               <Link to="/services" className="btn-main-small" style={{ marginTop: '15px' }}>ไปหน้าบริการ</Link>
             </div>
-          ))
-        ) : (
-          <div style={{textAlign:'center', color:'#aaa', marginTop:'50px'}}>
-             ไม่มีรายการจองในขณะนี้
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
